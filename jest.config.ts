@@ -6,7 +6,7 @@ const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'docker-build-push-action-'
 
 process.env = Object.assign({}, process.env, {
   TEMP: tmpDir,
-  GITHUB_REPOSITORY: 'docker/build-push-action',
+  GITHUB_REPOSITORY: 'step-security/docker-build-push-action',
   RUNNER_TEMP: path.join(tmpDir, 'runner-temp'),
   RUNNER_TOOL_CACHE: path.join(tmpDir, 'runner-tool-cache')
 }) as {

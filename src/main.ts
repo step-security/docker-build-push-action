@@ -88,7 +88,7 @@ actionsToolkit.run(
     });
 
     if (!(await toolkit.buildx.isAvailable())) {
-      core.setFailed(`Docker buildx is required. See https://github.com/docker/setup-buildx-action to set up buildx.`);
+      core.setFailed(`Docker buildx is required. See https://github.com/step-security/setup-buildx-action to set up buildx.`);
       return;
     }
 

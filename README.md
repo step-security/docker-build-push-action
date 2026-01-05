@@ -30,14 +30,14 @@ ___
 
 In the examples below we are also using 3 other actions:
 
-* [`setup-buildx`](https://github.com/docker/setup-buildx-action) action will
+* [`setup-buildx`](https://github.com/step-security/setup-buildx-action) action will
   create and boot a builder using by default the [`docker-container` driver](https://docs.docker.com/build/building/drivers/docker-container/).
   This is **not required but recommended** using it to be able to build
   multi-platform images, export cache, etc.
 * [`setup-qemu`](https://github.com/docker/setup-qemu-action) action can be
   useful if you want to add emulation support with QEMU to be able to build
   against more platforms. 
-* [`login`](https://github.com/docker/login-action) action will take care to
+* [`login`](https://github.com/step-security/docker-login-action) action will take care to
   log in against a Docker registry.
 
 ### Git context
@@ -61,7 +61,7 @@ jobs:
     steps:
       -
         name: Login to Docker Hub
-        uses: docker/login-action@v3
+        uses: step-security/docker-login-action@v3
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -70,7 +70,7 @@ jobs:
         uses: docker/setup-qemu-action@v3
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@v3
       -
         name: Build and push
         uses: step-security/docker-build-push-action@v6
@@ -130,10 +130,10 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       -
         name: Login to Docker Hub
-        uses: docker/login-action@v3
+        uses: step-security/docker-login-action@v3
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -142,7 +142,7 @@ jobs:
         uses: docker/setup-qemu-action@v3
       -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@v3
       -
         name: Build and push
         uses: step-security/docker-build-push-action@v6
@@ -278,11 +278,3 @@ The following outputs are available:
 | `DOCKER_BUILD_RECORD_RETENTION_DAYS` | Number |         | Duration after which build record artifact will expire in days. Defaults to repository/org [retention settings](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy) if unset or `0` |
 | `DOCKER_BUILD_EXPORT_LEGACY`         | Bool   | `false` | If `true`, exports build using legacy export-build tool instead of [`buildx history export` command](https://docs.docker.com/reference/cli/docker/buildx/history/export/)                                                                                          |
 
-## Troubleshooting
-
-See [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-
-## Contributing
-
-Want to contribute? Awesome! You can find information about contributing to
-this project in the [CONTRIBUTING.md](/.github/CONTRIBUTING.md)

@@ -2,8 +2,8 @@ import {jest} from '@jest/globals';
 
 export const context = {
   repo: {
-    owner: 'docker',
-    repo: 'build-push-action'
+    owner: 'step-security',
+    repo: 'docker-build-push-action'
   },
   ref: 'refs/heads/master',
   runId: 123456789,

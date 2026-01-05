@@ -120,7 +120,7 @@ ccc"`],
         '--build-arg', 'ARG=val',
         '--build-arg', `MULTILINE=aaaa\nbbbb\nccc`,
         '--iidfile', imageIDFilePath,
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       undefined
     ],
@@ -139,7 +139,7 @@ ccc"`],
         '--iidfile', imageIDFilePath,
         '--tag', 'name/app:7.4',
         '--tag', 'name/app:latest',
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       undefined
     ],
@@ -233,7 +233,7 @@ ccc"`],
         'build',
         '--output', '.',
         '--secret', `id=GIT_AUTH_TOKEN,src=${tmpName}`,
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       undefined
     ],
@@ -241,7 +241,7 @@ ccc"`],
       8,
       '0.4.2',
       new Map<string, string>([
-        ['context', 'https://github.com/docker/build-push-action.git#refs/heads/master'],
+        ['context', 'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'],
         ['tag', 'localhost:5000/name/app:latest'],
         ['platforms', 'linux/amd64,linux/arm64'],
         ['secrets', 'GIT_AUTH_TOKEN=abcdefghijklmno=0123456789'],
@@ -260,7 +260,7 @@ ccc"`],
         '--secret', `id=GIT_AUTH_TOKEN,src=${tmpName}`,
         '--builder', 'builder-git-context-2',
         '--push',
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       undefined
     ],
@@ -268,7 +268,7 @@ ccc"`],
       9,
       '0.4.2',
       new Map<string, string>([
-        ['context', 'https://github.com/docker/build-push-action.git#refs/heads/master'],
+        ['context', 'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'],
         ['tag', 'localhost:5000/name/app:latest'],
         ['platforms', 'linux/amd64,linux/arm64'],
         ['secrets', `GIT_AUTH_TOKEN=abcdefghi,jklmno=0123456789
@@ -298,7 +298,7 @@ ccc"`],
         '--secret', `id=EMPTYLINE,src=${tmpName}`,
         '--builder', 'builder-git-context-2',
         '--push',
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       undefined
     ],
@@ -306,7 +306,7 @@ ccc"`],
       10,
       '0.4.2',
       new Map<string, string>([
-        ['context', 'https://github.com/docker/build-push-action.git#refs/heads/master'],
+        ['context', 'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'],
         ['tag', 'localhost:5000/name/app:latest'],
         ['platforms', 'linux/amd64,linux/arm64'],
         ['secrets', `GIT_AUTH_TOKEN=abcdefghi,jklmno=0123456789
@@ -336,7 +336,7 @@ ccc`],
         '--secret', `id=EMPTYLINE,src=${tmpName}`,
         '--builder', 'builder-git-context-2',
         '--push',
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       undefined
     ],
@@ -344,7 +344,7 @@ ccc`],
       11,
       '0.5.1',
       new Map<string, string>([
-        ['context', 'https://github.com/docker/build-push-action.git#refs/heads/master'],
+        ['context', 'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'],
         ['tag', 'localhost:5000/name/app:latest'],
         ['secret-files', `MY_SECRET=${path.join(__dirname, 'fixtures', 'secret.txt')}`],
         ['file', './test/Dockerfile'],
@@ -363,7 +363,7 @@ ccc`],
         '--builder', 'builder-git-context-2',
         '--network', 'host',
         '--push',
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       undefined
     ],
@@ -460,7 +460,7 @@ nproc=3`],
         'build',
         '--iidfile', imageIDFilePath,
         '--metadata-file', metadataJson,
-        'https://github.com/docker/build-push-action.git#refs/heads/master:docker'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master:docker'
       ],
       undefined
     ],
@@ -480,7 +480,7 @@ nproc=3`],
         '--iidfile', imageIDFilePath,
         '--secret', `id=GIT_AUTH_TOKEN,src=${tmpName}`,
         '--metadata-file', metadataJson,
-        'https://github.com/docker/build-push-action.git#refs/heads/master:subdir'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master:subdir'
       ],
       undefined
     ],
@@ -516,7 +516,7 @@ nproc=3`],
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],
@@ -536,7 +536,7 @@ nproc=3`],
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],
@@ -556,7 +556,7 @@ nproc=3`],
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=max,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=max,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],
@@ -722,7 +722,7 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--output', 'type=local,dest=./release-out',
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],
@@ -747,7 +747,7 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
         '--annotation', 'manifest:example3=yyy',
         '--annotation', 'manifest-descriptor[linux/amd64]:example4=zzz',
         '--output', 'type=local,dest=./release-out',
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],
@@ -768,7 +768,7 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
         'build',
         '--iidfile', imageIDFilePath,
         "--output", `type=image,"name=localhost:5000/name/app:latest,localhost:5000/name/app:foo",push-by-digest=true,name-canonical=true,push=true`,
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],
@@ -789,7 +789,7 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=max,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=max,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--attest', `type=sbom,disabled=false`,
         '--metadata-file', metadataJson,
         '.'
@@ -811,7 +811,7 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=max,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=max,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],
@@ -831,7 +831,7 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=min,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
         '.'
       ],

@@ -1,3 +1,3 @@
-module github.com/docker/build-push-action/test/go
+module github.com/step-security/docker-build-push-actiontest/go
 
 go 1.18
