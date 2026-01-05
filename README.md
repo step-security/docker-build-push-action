@@ -192,7 +192,7 @@ build in greater detail.
 > if `name` and `pattern` inputs are not specified ([defaults to download all artifacts](https://github.com/actions/download-artifact?tab=readme-ov-file#download-all-artifacts) of the workflow),
 > otherwise the action will fail:
 > ```yaml
-> - uses: actions/download-artifact@v4
+> - uses: actions/download-artifact@v7
 >   with:
 >     pattern: "!*.dockerbuild"
 > ```
@@ -228,7 +228,7 @@ The following inputs can be used as `step.with` keys:
 | `allow`            | List/CSV    | List of [extra privileged entitlement](https://docs.docker.com/engine/reference/commandline/buildx_build/#allow) (e.g., `network.host,security.insecure`)                         |
 | `annotations`      | List        | List of annotation to set to the image                                                                                                                                            |
 | `attests`          | List        | List of [attestation](https://docs.docker.com/build/attestations/) parameters (e.g., `type=sbom,generator=image`)                                                                 | 
-| `builder`          | String      | Builder instance (see [setup-buildx](https://github.com/docker/setup-buildx-action) action)                                                                                       |
+| `builder`          | String      | Builder instance (see [setup-buildx](https://github.com/step-security/setup-buildx-action) action)                                                                                       |
 | `build-args`       | List        | List of [build-time variables](https://docs.docker.com/engine/reference/commandline/buildx_build/#build-arg)                                                                      |
 | `build-contexts`   | List        | List of additional [build contexts](https://docs.docker.com/engine/reference/commandline/buildx_build/#build-context) (e.g., `name=path`)                                         |
 | `cache-from`       | List        | List of [external cache sources](https://docs.docker.com/engine/reference/commandline/buildx_build/#cache-from) (e.g., `type=local,src=path/to/dir`)                              |
