@@ -3,14 +3,24 @@ name: NPM Audit Fix Run
 on:
   workflow_dispatch:
     inputs:
-      force:
-        description: "Use --force flag for npm audit fix?"
-        required: true
-        type: boolean
       base_branch:
         description: "Specify a base branch"
         required: false
         default: "main"
+      package_manager:
+        description: "Specify package manager (npm or yarn)"
+        required: false
+        default: "yarn"
+      script:
+        description: "Specify a script to run after audit fix"
+        required: false
+        default: "yarn build"
+      yarn_version:
+        description: "Specify a yarn version"
+        required: false
+        type: string  
+        default: "3.6.3"
+
   schedule:
     - cron: "0 0 * * 1"
 
@@ -20,6 +30,9 @@ jobs:
     with:
       force: ${{ inputs.force || false }}
       base_branch: ${{ inputs.base_branch || 'main' }}
+      package_manager: ${{inputs.package_manager || 'yarn' }}
+      script: ${{ inputs.script || 'yarn build' }}
+      yarn_version: ${{ inputs.yarn_version || '3.6.3' }}
 
 permissions:
   contents: write

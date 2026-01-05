@@ -11,6 +11,19 @@ on:
         description: "Run mode: cherry-pick or verify"
         required: false
         default: "cherry-pick"
+      package_manager:
+        description: "Specify package manager (npm or yarn)"
+        required: false
+        default: "yarn"
+      script:
+        description: "Specify a script to run after audit fix"
+        required: false
+        default: "yarn build"
+      yarn_version:
+        description: "Specify a yarn version"
+        required: false
+        type: string  
+        default: "3.6.3"
 
   pull_request:
     types: [opened, synchronize, labeled]
@@ -30,3 +43,6 @@ jobs:
       repo-name: "build-push-action"
       base_branch: ${{ inputs.base_branch }}
       mode: ${{ github.event_name == 'pull_request' && 'verify' || inputs.mode }}
+      package_manager: ${{inputs.package_manager || 'yarn' }}
+      script: ${{ inputs.script || 'yarn build' }}
+      yarn_version: ${{ inputs.yarn_version || '3.6.3' }}

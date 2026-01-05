@@ -1,8 +1,7 @@
 [![GitHub release](https://img.shields.io/github/release/step-security/docker-build-push-action.svg?style=flat-square)](https://github.com/step-security/docker-build-push-action/releases/latest)
-[![GitHub marketplace](https://img.shields.io/badge/marketplace-build--and--push--docker--images-blue?logo=github&style=flat-square)](https://github.com/marketplace/actions/build-and-push-docker-images)
 [![CI workflow](https://img.shields.io/github/actions/workflow/status/step-security/docker-build-push-action/ci.yml?branch=master&label=ci&logo=github&style=flat-square)](https://github.com/step-security/docker-build-push-action/actions?workflow=ci)
 [![Test workflow](https://img.shields.io/github/actions/workflow/status/step-security/docker-build-push-action/test.yml?branch=master&label=test&logo=github&style=flat-square)](https://github.com/step-security/docker-build-push-action/actions?workflow=test)
-[![Codecov](https://img.shields.io/codecov/c/github/step-security/docker-build-push-action?logo=codecov&style=flat-square)](https://codecov.io/gh/step-security/docker-build-push-action)
+
 
 ## About
 
