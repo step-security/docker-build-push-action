@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:alpine AS base
+FROM golang:alpine@sha256:ac09a5f469f307e5da71e766b0bd59c9c49ea460a528cc3e6686513d64a6f1fb AS base
 ENV CGO_ENABLED=0
 RUN apk add --no-cache file git
 WORKDIR /src
