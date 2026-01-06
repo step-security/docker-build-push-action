@@ -2697,7 +2697,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docker-build-push-action@workspace:."
   dependencies:
-    "@actions/core": ^1.11.1
+    "@actions/core": ^2.0.1
     "@docker/actions-toolkit": 0.71.0
     "@types/node": ^20.12.12
     "@typescript-eslint/eslint-plugin": ^7.9.0
