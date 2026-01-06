@@ -29,14 +29,19 @@ jobs:
   minimal:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -55,18 +60,23 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -104,18 +114,23 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -163,16 +178,21 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -212,13 +232,18 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Docker meta
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         with:
           images: ${{ env.DOCKER_IMAGE }}
           tags: |
@@ -231,7 +256,7 @@ jobs:
             type=sha
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -268,9 +293,14 @@ jobs:
   error:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Stop docker
         run: |
@@ -294,15 +324,20 @@ jobs:
   error-buildx:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -334,9 +369,14 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Build
         id: docker_build
@@ -350,9 +390,14 @@ jobs:
   export-docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Build
         uses: ./
@@ -369,12 +414,17 @@ jobs:
   secret:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -392,12 +442,17 @@ jobs:
   secret-envs:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -417,12 +472,17 @@ jobs:
   network:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -441,12 +501,17 @@ jobs:
   shm-size:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -463,12 +528,17 @@ jobs:
   ulimit:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -488,12 +558,17 @@ jobs:
   cgroup-parent:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -511,12 +586,17 @@ jobs:
   add-hosts:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -536,12 +616,17 @@ jobs:
   no-cache-filters:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -572,12 +657,17 @@ jobs:
           - buildx: v0.9.1
             buildkit: moby/buildkit:buildx-stable-1
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ matrix.buildx }}
           driver-opts: |
@@ -615,12 +705,17 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -667,12 +762,17 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -719,16 +819,21 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -788,12 +893,17 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver: ${{ matrix.driver }}
@@ -858,15 +968,20 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -907,15 +1022,20 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -948,15 +1068,20 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -965,7 +1090,7 @@ jobs:
           buildkitd-flags: --debug
       -
         name: Cache Build
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-local-test-${{ github.sha }}
@@ -997,9 +1122,14 @@ jobs:
   standalone:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Uninstall docker cli
         run: |
@@ -1010,7 +1140,7 @@ jobs:
           fi
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1026,12 +1156,17 @@ jobs:
   named-context-pin:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1048,12 +1183,17 @@ jobs:
   named-context-docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver: docker
@@ -1082,12 +1222,17 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1113,9 +1258,14 @@ jobs:
   docker-config-malformed:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set malformed docker config
         run: |
@@ -1135,6 +1285,11 @@ jobs:
         ports:
           - 3128:3128
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Check proxy
         run: |
@@ -1142,7 +1297,7 @@ jobs:
           curl --retry 5 --retry-all-errors --retry-delay 0 --connect-timeout 5 --proxy http://127.0.0.1:3128 -v --insecure --head https://www.google.com
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set proxy config
         run: |
@@ -1150,7 +1305,7 @@ jobs:
           echo '{"proxies":{"default":{"httpProxy":"http://127.0.0.1:3128","httpsProxy":"http://127.0.0.1:3128"}}}' > ~/.docker/config.json
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1172,6 +1327,11 @@ jobs:
         ports:
           - 3128:3128
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Check proxy
         run: |
@@ -1179,10 +1339,10 @@ jobs:
           curl --retry 5 --retry-all-errors --retry-delay 0 --connect-timeout 5 --proxy http://127.0.0.1:3128 -v --insecure --head https://www.google.com
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1208,13 +1368,18 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Docker meta
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         with:
           images: ${{ env.DOCKER_IMAGE }}
           tags: |
@@ -1227,7 +1392,7 @@ jobs:
             type=sha
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1258,15 +1423,20 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1307,15 +1477,20 @@ jobs:
         ports:
           - 5000:5000
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1343,14 +1518,19 @@ jobs:
   summary-disable:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1366,14 +1546,19 @@ jobs:
   summary-disable-deprecated:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1389,14 +1574,19 @@ jobs:
   summary-not-supported:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: v0.12.1
           driver-opts: |
@@ -1410,14 +1600,19 @@ jobs:
   record-upload-disable:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1439,14 +1634,19 @@ jobs:
           - 2
           - 0
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1468,14 +1668,19 @@ jobs:
           - false
           - true
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1498,12 +1703,17 @@ jobs:
           - latest
           - v0.14.1
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ matrix.buildx-version }}
           driver-opts: |
@@ -1518,12 +1728,17 @@ jobs:
   annotations-disabled:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1540,12 +1755,17 @@ jobs:
   call-check:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1570,14 +1790,19 @@ jobs:
   no-default-attestations:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
       -
         name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
