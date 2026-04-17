@@ -74,7 +74,7 @@ describe('getInputs', () => {
   }
 
   test('uses Build git context when context input is empty', async () => {
-    const gitContext = 'https://github.com/docker/build-push-action.git?ref=refs/heads/master';
+    const gitContext = 'https://github.com/step-security/docker-build-push-action.git?ref=refs/heads/master';
     const gitContextSpy = vi.spyOn(Build.prototype, 'gitContext').mockResolvedValue(gitContext);
     setRequiredBooleanInputs();
     const context = await loadContextModule();
@@ -85,7 +85,7 @@ describe('getInputs', () => {
   });
 
   test('renders defaultContext templates from Build git context', async () => {
-    const gitContext = 'https://github.com/docker/build-push-action.git#refs/heads/master';
+    const gitContext = 'https://github.com/step-security/docker-build-push-action.git#refs/heads/master';
     const gitContextSpy = vi.spyOn(Build.prototype, 'gitContext').mockResolvedValue(gitContext);
     setRequiredBooleanInputs();
     setInput('context', '{{defaultContext}}:subdir');
@@ -945,9 +945,9 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
-        'https://github.com/docker/build-push-action.git?ref=refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git?ref=refs/heads/master'
       ],
       new Map<string, string>([
         ['BUILDX_SEND_GIT_QUERY_AS_INPUT', 'true']
@@ -965,9 +965,9 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--metadata-file', metadataJson,
-        'https://github.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       new Map<string, string>([
         ['BUILDX_SEND_GIT_QUERY_AS_INPUT', 'true']

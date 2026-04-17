@@ -61,19 +61,19 @@ jobs:
     steps:
       -
         name: Login to Docker Hub
-        uses: step-security/docker-login-action@v3
+        uses: step-security/docker-login-action@v4
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: step-security/setup-qemu-action@v4
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@v4
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           push: true
           tags: user/app:latest
@@ -93,7 +93,7 @@ to the default Git context:
 ```yaml
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           context: "{{defaultContext}}:mysubdir"
           push: true
@@ -108,7 +108,7 @@ named `GIT_AUTH_TOKEN` to be able to authenticate against it with Buildx:
 ```yaml
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           push: true
           tags: user/app:latest
@@ -133,19 +133,19 @@ jobs:
         uses: actions/checkout@v6
       -
         name: Login to Docker Hub
-        uses: step-security/docker-login-action@v3
+        uses: step-security/docker-login-action@v4
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: step-security/setup-qemu-action@v4
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@v34
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           context: .
           push: true
