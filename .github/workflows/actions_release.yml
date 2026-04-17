@@ -14,7 +14,7 @@ on:
         description: "Specify a yarn version"
         required: false
         type: string  
-        default: "3.6.3"
+        default: "4.9.2"
 
 permissions:
   contents: read
@@ -30,4 +30,4 @@ jobs:
     with:
       tag: "${{ github.event.inputs.tag }}"
       script: ${{ github.event.inputs.script || 'yarn build' }}
-      yarn_version: ${{ github.event.inputs.yarn_version || '3.6.3' }}
+      yarn_version: ${{ github.event.inputs.yarn_version || '4.9.2' }}
