@@ -34,7 +34,7 @@ In the examples below we are also using 3 other actions:
   create and boot a builder using by default the [`docker-container` driver](https://docs.docker.com/build/building/drivers/docker-container/).
   This is **not required but recommended** using it to be able to build
   multi-platform images, export cache, etc.
-* [`setup-qemu`](https://github.com/docker/setup-qemu-action) action can be
+* [`setup-qemu`](https://github.com/step-security/setup-qemu-action) action can be
   useful if you want to add emulation support with QEMU to be able to build
   against more platforms. 
 * [`login`](https://github.com/step-security/docker-login-action) action will take care to
