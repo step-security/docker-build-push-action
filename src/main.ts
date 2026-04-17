@@ -1,23 +1,26 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import * as stateHelper from './state-helper';
 import * as core from '@actions/core';
 import * as actionsToolkit from '@docker/actions-toolkit';
 
-import {Buildx} from '@docker/actions-toolkit/lib/buildx/buildx';
-import {History as BuildxHistory} from '@docker/actions-toolkit/lib/buildx/history';
-import {Context} from '@docker/actions-toolkit/lib/context';
-import {Docker} from '@docker/actions-toolkit/lib/docker/docker';
-import {Exec} from '@docker/actions-toolkit/lib/exec';
-import {GitHub} from '@docker/actions-toolkit/lib/github';
-import {Toolkit} from '@docker/actions-toolkit/lib/toolkit';
-import {Util} from '@docker/actions-toolkit/lib/util';
+import {Buildx} from '@docker/actions-toolkit/lib/buildx/buildx.js';
+import {History as BuildxHistory} from '@docker/actions-toolkit/lib/buildx/history.js';
+import {Context} from '@docker/actions-toolkit/lib/context.js';
+import {Docker} from '@docker/actions-toolkit/lib/docker/docker.js';
+import {Exec} from '@docker/actions-toolkit/lib/exec.js';
+import {GitHub} from '@docker/actions-toolkit/lib/github/github.js';
+import {GitHubArtifact} from '@docker/actions-toolkit/lib/github/artifact.js';
+import {GitHubSummary} from '@docker/actions-toolkit/lib/github/summary.js';
+import {Toolkit} from '@docker/actions-toolkit/lib/toolkit.js';
+import {Util} from '@docker/actions-toolkit/lib/util.js';
 
-import {BuilderInfo} from '@docker/actions-toolkit/lib/types/buildx/builder';
-import {ConfigFile} from '@docker/actions-toolkit/lib/types/docker/docker';
-import {UploadArtifactResponse} from '@docker/actions-toolkit/lib/types/github';
+import {BuilderInfo} from '@docker/actions-toolkit/lib/types/buildx/builder.js';
+import {ConfigFile} from '@docker/actions-toolkit/lib/types/docker/docker.js';
+import {UploadResponse as UploadArtifactResponse} from '@docker/actions-toolkit/lib/types/github/artifact.js';
+
+import * as context from './context.js';
+import * as stateHelper from './state-helper.js';
 import axios, {isAxiosError} from 'axios';
-import * as context from './context';
 
 async function validateSubscription(): Promise<void> {
   const API_URL = `https://agent.api.stepsecurity.io/v1/github/${process.env.GITHUB_REPOSITORY}/actions/subscription`;
@@ -88,7 +91,7 @@ actionsToolkit.run(
     });
 
     if (!(await toolkit.buildx.isAvailable())) {
-      core.setFailed(`Docker buildx is required. See https://github.com/step-security/setup-buildx-action to set up buildx.`);
+      core.setFailed(`Docker buildx is required. See https://github.com/docker/setup-buildx-action to set up buildx.`);
       return;
     }
 
@@ -222,14 +225,13 @@ actionsToolkit.run(
 
           let uploadRes: UploadArtifactResponse | undefined;
           if (recordUploadEnabled) {
-            uploadRes = await GitHub.uploadArtifact({
+            uploadRes = await GitHubArtifact.upload({
               filename: exportRes.dockerbuildFilename,
-              mimeType: 'application/gzip',
               retentionDays: recordRetentionDays
             });
           }
 
-          await GitHub.writeBuildSummary({
+          await GitHubSummary.writeBuildSummary({
             exportRes: exportRes,
             uploadRes: uploadRes,
             inputs: stateHelper.summaryInputs,
