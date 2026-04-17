@@ -34,7 +34,7 @@ In the examples below we are also using 3 other actions:
   create and boot a builder using by default the [`docker-container` driver](https://docs.docker.com/build/building/drivers/docker-container/).
   This is **not required but recommended** using it to be able to build
   multi-platform images, export cache, etc.
-* [`setup-qemu`](https://github.com/docker/setup-qemu-action) action can be
+* [`setup-qemu`](https://github.com/step-security/setup-qemu-action) action can be
   useful if you want to add emulation support with QEMU to be able to build
   against more platforms. 
 * [`login`](https://github.com/step-security/docker-login-action) action will take care to
@@ -61,19 +61,19 @@ jobs:
     steps:
       -
         name: Login to Docker Hub
-        uses: step-security/docker-login-action@v3
+        uses: step-security/docker-login-action@v4
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: step-security/setup-qemu-action@v4
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@v4
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           push: true
           tags: user/app:latest
@@ -93,7 +93,7 @@ to the default Git context:
 ```yaml
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           context: "{{defaultContext}}:mysubdir"
           push: true
@@ -108,7 +108,7 @@ named `GIT_AUTH_TOKEN` to be able to authenticate against it with Buildx:
 ```yaml
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           push: true
           tags: user/app:latest
@@ -133,19 +133,19 @@ jobs:
         uses: actions/checkout@v6
       -
         name: Login to Docker Hub
-        uses: step-security/docker-login-action@v3
+        uses: step-security/docker-login-action@v4
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: step-security/setup-qemu-action@v4
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v3
+        uses: step-security/setup-buildx-action@v34
       -
         name: Build and push
-        uses: step-security/docker-build-push-action@v6
+        uses: step-security/docker-build-push-action@v7
         with:
           context: .
           push: true
@@ -276,5 +276,5 @@ The following outputs are available:
 | `DOCKER_BUILD_SUMMARY`               | Bool   | `true`  | If `false`, [build summary](https://docs.docker.com/build/ci/github-actions/build-summary/) generation is disabled                                                                                                                                                 |
 | `DOCKER_BUILD_RECORD_UPLOAD`         | Bool   | `true`  | If `false`, build record upload as [GitHub artifact](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts) is disabled                                                                                                            |
 | `DOCKER_BUILD_RECORD_RETENTION_DAYS` | Number |         | Duration after which build record artifact will expire in days. Defaults to repository/org [retention settings](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy) if unset or `0` |
-                                                                                  |
+
 
