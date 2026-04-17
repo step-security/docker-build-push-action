@@ -1543,6 +1543,34 @@ jobs:
         env:
           DOCKER_BUILD_SUMMARY: false
 
+  summary-disable-deprecated:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
+      -
+        name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          path: action
+      -
+        name: Set up Docker Buildx
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        with:
+          version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
+          driver-opts: |
+            image=${{ inputs.buildkit-image || env.BUILDKIT_IMAGE }}
+      -
+        name: Build
+        uses: ./action
+        with:
+          file: ./test/Dockerfile
+        env:
+          DOCKER_BUILD_NO_SUMMARY: true
+
   summary-not-supported:
     runs-on: ubuntu-latest
     steps:
@@ -1630,6 +1658,40 @@ jobs:
           file: ./test/Dockerfile
         env:
           DOCKER_BUILD_RECORD_RETENTION_DAYS: ${{ matrix.days }}
+
+  export-legacy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        legacy:
+          - false
+          - true
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        with:
+          egress-policy: audit
+
+      -
+        name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          path: action
+      -
+        name: Set up Docker Buildx
+        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        with:
+          version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
+          driver-opts: |
+            image=${{ inputs.buildkit-image || env.BUILDKIT_IMAGE }}
+      -
+        name: Build
+        uses: ./action
+        with:
+          file: ./test/Dockerfile
+        env:
+          DOCKER_BUILD_EXPORT_LEGACY: ${{ matrix.legacy }}
 
   checks:
     runs-on: ubuntu-latest
