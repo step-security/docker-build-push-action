@@ -1,5 +1,3 @@
-[![StepSecurity Maintained Action](https://raw.githubusercontent.com/step-security/maintained-actions-assets/main/assets/maintained-action-banner.png)](https://docs.stepsecurity.io/actions/stepsecurity-maintained-actions)
-
 [![GitHub release](https://img.shields.io/github/release/step-security/docker-build-push-action.svg?style=flat-square)](https://github.com/step-security/docker-build-push-action/releases/latest)
 [![CI workflow](https://img.shields.io/github/actions/workflow/status/step-security/docker-build-push-action/ci.yml?branch=master&label=ci&logo=github&style=flat-square)](https://github.com/step-security/docker-build-push-action/actions?workflow=ci)
 [![Test workflow](https://img.shields.io/github/actions/workflow/status/step-security/docker-build-push-action/test.yml?branch=master&label=test&logo=github&style=flat-square)](https://github.com/step-security/docker-build-push-action/actions?workflow=test)
@@ -144,7 +142,7 @@ jobs:
         uses: step-security/setup-qemu-action@v4
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@v34
+        uses: step-security/setup-buildx-action@v4
       -
         name: Build and push
         uses: step-security/docker-build-push-action@v7
