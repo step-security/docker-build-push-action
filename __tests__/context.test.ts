@@ -871,10 +871,10 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=http://10.0.0.5:22827/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=http://10.0.0.5:22827/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--secret', `id=GIT_AUTH_TOKEN.10.0.0.5:22827,src=${tmpName}`,
         '--metadata-file', metadataJson,
-        'http://10.0.0.5:22827/docker/build-push-action.git#refs/heads/master'
+        'http://10.0.0.5:22827/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       new Map<string, string>([
         ['GITHUB_SERVER_URL', 'http://10.0.0.5:22827'],
@@ -894,10 +894,10 @@ ANOTHER_SECRET=ANOTHER_SECRET_ENV`]
       [
         'build',
         '--iidfile', imageIDFilePath,
-        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.cds.internal.unity3d.com/docker/build-push-action/actions/runs/123456789/attempts/1`,
+        '--attest', `type=provenance,mode=min,inline-only=true,builder-id=https://github.cds.internal.unity3d.com/step-security/docker-build-push-action/actions/runs/123456789/attempts/1`,
         '--secret', `id=GIT_AUTH_TOKEN.github.cds.internal.unity3d.com,src=${tmpName}`,
         '--metadata-file', metadataJson,
-        'https://github.cds.internal.unity3d.com/docker/build-push-action.git#refs/heads/master'
+        'https://github.cds.internal.unity3d.com/step-security/docker-build-push-action.git#refs/heads/master'
       ],
       new Map<string, string>([
         ['GITHUB_SERVER_URL', 'https://github.cds.internal.unity3d.com'],
