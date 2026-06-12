@@ -2259,7 +2259,7 @@ software or this license, under any kind of legal claim._**
 
 The following npm package may be included in this product:
 
- - axios@1.15.0
+ - axios@1.17.0
 
 This package contains the following license:
 
@@ -3506,7 +3506,7 @@ THE SOFTWARE.
 
 The following npm package may be included in this product:
 
- - follow-redirects@1.15.11
+ - follow-redirects@1.16.0
 
 This package contains the following license:
 
@@ -3850,13 +3850,17 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 The following npm packages may be included in this product:
 
+ - @nodable/entities@2.2.0
+ - agent-base@6.0.2
  - binary@0.3.0
  - browserify-zlib@0.1.4
  - eastasianwidth@0.2.0
  - err-code@2.0.3
+ - https-proxy-agent@5.0.1
  - imurmurhash@0.1.4
  - is-gzip@1.0.0
  - isarray@1.0.0
+ - xml-naming@0.1.0
 
 These packages each contain the following license:
 
@@ -4019,7 +4023,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - fast-xml-parser@5.5.11
+ - fast-xml-parser@5.8.0
 
 This package contains the following license:
 
@@ -4199,7 +4203,7 @@ SOFTWARE.
 
 The following npm package may be included in this product:
 
- - strnum@2.2.3
+ - strnum@2.4.0
 
 This package contains the following license:
 
@@ -4536,11 +4540,12 @@ SOFTWARE.
 
 -----------
 
-The following npm package may be included in this product:
+The following npm packages may be included in this product:
 
- - fast-xml-builder@1.1.4
+ - anynum@1.0.0
+ - fast-xml-builder@1.2.0
 
-This package contains the following license:
+These packages each contain the following license:
 
 MIT License
 
@@ -4695,7 +4700,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 The following npm package may be included in this product:
 
- - brace-expansion@5.0.5
+ - brace-expansion@5.0.6
 
 This package contains the following license:
 
@@ -5479,7 +5484,7 @@ THE SOFTWARE.
 
 The following npm package may be included in this product:
 
- - tmp@0.2.5
+ - tmp@0.2.7
 
 This package contains the following license:
 
