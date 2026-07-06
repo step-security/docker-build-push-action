@@ -1,0 +1,18 @@
+{
+   "schema_version": "1",
+   "onboarding_type": "copied",
+   "archived": false,
+   "maintained_action_name": "step-security/docker-build-push-action",
+   "upstream_full_repo_name": "docker/build-push-action",
+   "action_type": "node",
+   "last_release": {
+     "tag_name": "v7.2.0",
+     "created_at": "2026-06-12T05:17:54Z",
+     "published_at": "2026-06-12T15:20:27Z"
+   },
+   "sync": {
+     "ignore_presets": [
+       "defaults_v1"
+     ]
+   }
+ }
