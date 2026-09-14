@@ -41,7 +41,7 @@ jobs:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -76,7 +76,7 @@ jobs:
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -127,7 +127,7 @@ jobs:
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@v4
+        uses: step-security/setup-buildx-action@v4.1.0
         with:
           version: v0.29.0
           driver-opts: |
@@ -181,7 +181,7 @@ jobs:
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -243,7 +243,7 @@ jobs:
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -307,7 +307,7 @@ jobs:
             type=sha
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -388,7 +388,7 @@ jobs:
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -475,7 +475,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -526,7 +526,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -556,7 +556,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -585,7 +585,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -612,7 +612,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -642,7 +642,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -670,7 +670,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -700,7 +700,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -741,7 +741,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ matrix.buildx }}
           driver-opts: |
@@ -789,7 +789,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -846,7 +846,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -907,7 +907,7 @@ jobs:
       -
         name: Set up Docker Buildx
         id: buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -977,7 +977,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver: ${{ matrix.driver }}
@@ -1055,7 +1055,7 @@ jobs:
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1109,7 +1109,7 @@ jobs:
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1155,7 +1155,7 @@ jobs:
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1214,7 +1214,7 @@ jobs:
           fi
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1240,7 +1240,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1267,7 +1267,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver: docker
@@ -1306,7 +1306,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1379,7 +1379,7 @@ jobs:
           echo '{"proxies":{"default":{"httpProxy":"http://127.0.0.1:3128","httpsProxy":"http://127.0.0.1:3128"}}}' > ~/.docker/config.json
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1416,7 +1416,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1466,7 +1466,7 @@ jobs:
             type=sha
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1510,7 +1510,7 @@ jobs:
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1564,7 +1564,7 @@ jobs:
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1604,7 +1604,7 @@ jobs:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1632,7 +1632,7 @@ jobs:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: v0.12.1
           driver-opts: |
@@ -1658,7 +1658,7 @@ jobs:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1692,7 +1692,7 @@ jobs:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1725,7 +1725,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ matrix.buildx-version }}
           driver-opts: |
@@ -1750,7 +1750,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1777,7 +1777,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
@@ -1814,7 +1814,7 @@ jobs:
           path: action
       -
         name: Set up Docker Buildx
-        uses: step-security/setup-buildx-action@8c8aef2d414c0b66518fee2b7084e0986f82d7ac # v3.11.1
+        uses: step-security/setup-buildx-action@6997872a55d77391e51b87609556578131f44402 # v4.1.0
         with:
           version: ${{ inputs.buildx-version || env.BUILDX_VERSION }}
           driver-opts: |
